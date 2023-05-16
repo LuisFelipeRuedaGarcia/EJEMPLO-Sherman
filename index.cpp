@@ -42,7 +42,7 @@ int main() {
 
     //-------------------------------------------------
 
-    int edad;
+    /* int edad;
     cout << "Ingrese su edad" << endl;
     cin >> edad;
     if (edad >= 18 && edad <= 40)
@@ -51,7 +51,40 @@ int main() {
     }
     else {
         cout << "No cumple con los parametros de edad requeridos , no puede votar";
+    } */
+
+    //--------------------------------------------------
+    
+    /* int opcion;
+    cout << "Ingrese la opcion deseada ";
+    cin >> opcion;
+    switch (opcion) {
+        case 1:
+            cout<< "Opcion 1" << endl;
+            break;
+        case 2:
+            cout << "Opcion 2" << endl;
+            break;
+    
+    default:
+        cout << "Esto no existe" << endl;
+        break;
+    } */
+
+    //---------------------------------------------------
+
+    /* int entre;
+    cout << "Limite: " << endl;
+    cin >> entre; */
+
+    
+    int entre[] = {100 , 200 , 300 , 400};
+    int limite = sizeof(entre) / sizeof(entre[1]);
+    
+    for (int i = 0; i < limite; i++){
+        cout << entre[i] << endl;
     }
+    
     
 
 }
