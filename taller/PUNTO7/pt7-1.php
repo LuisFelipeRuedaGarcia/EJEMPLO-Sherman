@@ -13,6 +13,8 @@
     <form action="pt7-2.php" method="get">
         <label for="nombre">Ingresa el nombre</label>
             <input type="text" name="nombre">
+        <label for="nombreProducto">Ingrese el nombre del producto</label>
+            <input type="text" name="nombreProducto">
         <label for="precio">Ingrese el precio del articulo</label>
             <input type="number" name="precio">
         <label for="cantidad">Ingrese la cantidad del producto</label>
