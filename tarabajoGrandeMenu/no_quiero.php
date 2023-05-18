@@ -7,7 +7,7 @@
     <title>Trabajo a</title>
 </head>
 <body>
-    <form action="no_quiero.php" method="get">
+    <form action="no_quiero.php" method="POST">
         <label>Inserte un numero de la lista</label>
             <input type="number" name="numero" min="1" max="15">
             <input type="submit" name="send" value="enviar">
@@ -33,28 +33,43 @@
     <?php 
         session_start(); //USA $_SESSION["arraydenumeros"] PARA ALMACENAR EN LA SESION
     
-        if (isset($_GET["send"])) {
-            $numero = $_GET["numero"];
+        if (isset($_POST["numero"]) || isset($_SESSION["numero"])) {
+
+            if (isset($_POST["numero"])){
+            $numero = $_POST["numero"];
+            $_SESSION["numero"] = $_POST["numero"];
+            }
+            else {
+              $numero = $_SESSION["numero"];
+            };
+
             switch ($numero) {
                 case 1:
-                    $arrayText = [];
-                    echo '
-                        <form action="no_quiero.php" method="get">
-                            <label>Inserte dato</label>
-                            <input type="text" name="dato">
-                            <input type="submit" name="enviar">
-                        </form>
-                        ';
-                    if ($_GET) {
-                        $dato = $_GET["dato"];
-                        $arrayText = array_push($dato);
+
+                    if ($_POST["dato"] || $_SESSION["dato"]) {
+
+                        $dato = $_POST["dato"];
+                        /* $arrayText = array_push($dato); */
                          
-                        $datos = $_SESSION[$arrayText];
-                        if ((!isset($_SESSION["arrayText"]))) {
-                            $_SESSION['ArrayText']=[];
+                        if (isset($_POST["dato"])){
+                            $dato = $_POST["dato"];
+                            $_SESSION["dato"] = $_POST["dato"];
+                            }
+                            else {
+                              $dato = $_SESSION["dato"];
+                            };
+                        echo $dato;
                         }
-                        echo $datos;
-                    }
+
+                    
+                    else{
+                    echo '
+                    <form action="no_quiero.php" method="POST">
+                        <label>Inserte dato</label>
+                        <input type="text" name="dato">
+                        <input type="submit" name="enviar">
+                    </form>
+                    ';}
                     break;
                 case 2:
                     echo "number 2";
